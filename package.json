@@ -1,12 +1,13 @@
 {
-  "name" : "SMSApp",
-  "version" : "1.0.0",
-  "scripts" : {
-    "start" : "node AutoReply.js"
+  "name": "SMSApp",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node AutoReply.js"
   },
-  "dependencies" : {
-      "express" : "5.0.0"
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
   },
-  "author" : "Leron Julian:,
-  "license" : "Morehouse"
+  "author": "Leron Julian",
+  "license": "Morehouse"
 }

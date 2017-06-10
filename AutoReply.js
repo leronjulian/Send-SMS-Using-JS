@@ -6,11 +6,13 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+var port = process.env.PORT || 1337
+
 //exteded: false, tells parser not to parse fancy URL Bodies
 app.use(bodyParser.urlencoded({extended: false})); 
 
 //Route handles post request on the message endpoint
-app.post('/message', function (req, res) 
+app.post('/', function (req, res) 
 {
 	console.log(req.body);
 	//Gets the phone number of the user
@@ -22,7 +24,6 @@ app.post('/message', function (req, res)
 	res.send(`
 		<Response>
 			<Message>
-				//Message being replied to the user
 				${msgBody}
 			</Message>
 		</Response>
@@ -30,6 +31,7 @@ app.post('/message', function (req, res)
 });
 
 //Port that the app is listening on (1337)
-//Must have app running (node AutoReply.js)
+//Must start server (node AutoReply.js)
 //Must have ngrok running (./ngrok http 1337)
-app.listen(1337);
+//Must set Message Comes In on Twilio Dashboard to the second forwarding (xxx/message)
+app.listen(port);
