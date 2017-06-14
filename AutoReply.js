@@ -35,6 +35,11 @@ app.post('/', function (req, res)
 	//Joins strings in array to create one sentence
 	var sentence = strippedWords.join(" ");
 
+	//Keywords
+	var keyWords = holder[1].join(" ");
+
+
+
 	//used http response (Twiml) which is a set of XML tags to tell Twilio what to do next
 	res.send(`
 		<Response>

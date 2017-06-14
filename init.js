@@ -206,7 +206,6 @@ exports.stripWord = function(userImput)
 		}
 	}
 
-
 	//Returns [parsed string, keywords that were found in the string]
 	return [myArray, keywords];
 }
