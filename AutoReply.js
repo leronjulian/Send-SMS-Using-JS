@@ -18,7 +18,7 @@ app.post('/', function (req, res)
 {
 	console.log(req.body);
 	//Gets the phone number of the user
-	var msgFrom = req.body.From;
+	var msgFrom = req.body.From; 
 	//Gets the message that the user sent
 	var initalString = req.body.Body;
 
@@ -30,21 +30,43 @@ app.post('/', function (req, res)
 	//Strips punctuation and 's'
 	var holder = initFile.stripWord(lowerCaseString);
 
-	var strippedWords = holder[0];
+	//var strippedWords = holder[2];
 
 	//Joins strings in array to create one sentence
-	var sentence = strippedWords.join(" ");
+	//var sentence = holder.join(" ");
+
+	//The answer to the question
+	//var sentence = holder[2];
+
+	var matchedWords = holder[2];
+
+	var keyWords = holder[1].join(", ");
+
+	var assumedQuestion = holder[0].join(" ");
+
+
+	//TESTING////////
+	//The assummed Question
+	//Words they mathced on
+	//The keywords pair for the question
+
+	var testing = "Assumed Question: " + assumedQuestion + "\n\n" + "Matched Words: " + matchedWords + "\n\n" + "Keywords: " + keyWords;
+
+	//////////////////////
+
+
+
+	//Originial question and ECA response in desired format
+	//var mentorResponse = "You: " + initalString + "\n\n" + "Mentor: " + sentence;
 
 	//Keywords
-	var keyWords = holder[1].join(" ");
-
-
+	//var keyWords = holder[1].join(" ");
 
 	//used http response (Twiml) which is a set of XML tags to tell Twilio what to do next
 	res.send(`
 		<Response>
 			<Message>
-				${sentence}
+				${testing} 
 			</Message>
 		</Response>
 	`);
